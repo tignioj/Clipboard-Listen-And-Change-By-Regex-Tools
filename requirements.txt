@@ -1,0 +1,2 @@
+cchardet==2.1.7
+pyperclip==1.8.2

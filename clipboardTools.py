@@ -29,11 +29,6 @@ class ClipBoardTools:
             except pyperclip.PyperclipWindowsException:
                 print("Error when open")
 
-    @staticmethod
-    def loopCheckClipBoard(changeTextFun):
-        # x = threading.Thread(target=ClipBoardTools.handleClipboardText, args=[changeTextFun])
-        # x.start()
-        ClipBoardTools.handleClipboardText(changeTextFun)
 
     @staticmethod
     def addToClipBoard(text):

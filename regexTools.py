@@ -22,6 +22,13 @@ class RegexTool:
         return strAfterTrim
 
     @staticmethod
+    def trimEndOfLineAsSpace(strToReplace):
+        "删除换行, 替换为空格"
+        trimPattern = re.compile(r'[\r\n]')
+        strAfterTrim = trimPattern.sub(" ", strToReplace)
+        return strAfterTrim
+
+    @staticmethod
     def trimSpaceAndEndOfLine(strToReplace):
         "删掉所有的空格和换行"
         trimPattern = re.compile(r'[\s\n]')
@@ -69,6 +76,14 @@ class RegexTool:
 
     @staticmethod
     def reformatLineByReference(strToReplace):
+        """
+        重新排版例如把 [1]xxx [2]xxx [3]xxx 变成了
+        [1]xxx
+        [2]xxx
+        [3]xxx
+        :param strToReplace:
+        :return:
+        """
         # newStr = re.compile(r'(［\d+］)').sub(r'\n\1', strToReplace)
         newStr = re.compile(r'(\[\d+\])').sub(r'\n\1', strToReplace)
         return newStr
