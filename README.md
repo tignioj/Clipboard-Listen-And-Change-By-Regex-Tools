@@ -16,7 +16,7 @@ pip install -r ./requirement.txt
 ## 2. 输入你要修改的内容
 在main.py里面有个各种方法，想用哪个直接取消注释就行了
 ```python
-s = RegexTool.trimUnKnownChar(s, [r'', r'', r''])
+s = trimUnKnownChar(s, [r'', r'', r''])
 ```
 表示去掉''、''以及''这三个奇怪的字符
 
