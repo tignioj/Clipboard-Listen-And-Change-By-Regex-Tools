@@ -30,40 +30,47 @@ python main.py
 
 # 方法说明
 
+
     def handleText(s):
         # 表示去掉 ''、'' 以及 '' 这三个奇怪的字符
-        # s = RegexTool.trimUnKnownChar(s, [r'', r'', r''])
-    
+        # s = trimUnKnownChar(s, [r'', r'', r''])
+
         # 去掉换行
-        # s = RegexTool.trimEndOfLine(s)
-        
+        # s = trimEndOfLine(s)
+
         # 换行替换为空格
-        # s = RegexTool.trimEndOfLineAsSpace(s)
-        
+        # s = trimEndOfLineAsSpace(s)
+
         # 去掉所有的空格和换行（所有的内容会挤在一起）
-        # s = RegexTool.trimSpaceAndEndOfLine(s)
-        
+        # s = trimSpaceAndEndOfLine(s)
+
         # 重新排版例如把 [1]xxx [2]xxx [3]xxx 变成了
         # [1] xxx
         # [2] xxx
         # [3] xxx
-        # s =  RegexTool.reformatLineByReference(s)
-        
+        # s =  reformatLineByReference(s)
+
         # 重新排版 例如把 （1）xxx （2）xxx （3）xxx 变成了
         # （1） xxx
         # （2） xxx
-        # （3） xxx 
+        # （3） xxx
         # 注意这是中文括号，如果要改请到方法里面修改
-        # s = RegexTool.reformatLineByBraket(s)
-        
-        # 重新排版：多少个字符之后换行，例如这里输入30代表30个字符换行 
-        # s = RegexTool.reformatLine(s, 30)
-        
+        # s = reformatLineByBraket(s)
+
+        # 重新排版：多少个字符之后换行，例如这里输入30代表30个字符换行
+        # s = reformatLine(s, 30)
+
         # 除了句号和逗号后面的空格和换行不去掉，其它的空格和换行全部去掉"
-        # s = RegexTool.trimSpaceAndEndOfLineButNotCommaAndNotDot(s)
-        
-        # 读取文件夹而不是字符串 
-        # s = RegexTool.trimSpaceAndEndOfLine(getFile())
-        
+        # s = trimSpaceAndEndOfLineButNotCommaAndNotDot(s)
+
+        # 读取文件而不是字符串
+        # s = trimSpaceAndEndOfLine(getFile())
+
+        # 全角转成半角
+        s = full2half(s)
+
+        # 半角转全角
+        # s = half2full(s)
+
         # 所有的结果都会写入到文件`after_replace.txt`
-        writeFile(s)
+        writeFile("after_replace.txt", s)

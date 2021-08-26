@@ -1,4 +1,6 @@
 import re
+from utils.file_utils import *
+from utils.regex_utils import *
 
 def testTrimEndOfLine():
     strToReplace = """
@@ -28,6 +30,6 @@ def testRegex():
     s = p.sub(r'\1', r'<img src="test"')
     print(s)
 
-if __name__ == '__main__':
-    # testTrimEndOfLine()
-    testRegex()
+def testFile():
+    s = getFile("../before_replace.txt")
+    print(s)

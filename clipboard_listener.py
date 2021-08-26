@@ -2,12 +2,12 @@ import pyperclip
 import time
 
 
-class ClipBoardTools:
+class ClipboardListener:
     @staticmethod
-    def handleClipboardText(changeText):
+    def handleClipboardChangeAndDoSomething(callBackFunction):
         """
         检测剪贴板变动，如果复制了文本，则处理文本后，再重新设置剪贴板
-        :param changeText: 对文本进行处理
+        :param callBackFunction: 剪贴板变更后调用的函数
         :return:
         """
         prev = pyperclip.paste()
@@ -19,15 +19,15 @@ class ClipBoardTools:
             try:
                 nowText = pyperclip.paste()
                 if (nowText != prev) and (nowText != ''):
-                    print("Clipboard change!", prev, "-->", nowText)
-                    textAfterChange = changeText(nowText)
+                    print("Clipboard has changed!, from:", prev, "--to-->", nowText)
+                    textAfterChange = callBackFunction(nowText)
                     # 必须在重新设置剪贴板之前，把处理后的文本赋值到nowText表示当前剪贴板内容
                     nowText = textAfterChange
                     prev = nowText
-                    ClipBoardTools.addToClipBoard(textAfterChange)
-                    print("clipboard contentNow:\n", nowText)
-            except pyperclip.PyperclipWindowsException:
-                print("Error when open")
+                    ClipboardListener.addToClipBoard(textAfterChange)
+                    print("clipboard content now:\n", nowText)
+            except pyperclip.PyperclipWindowsException as e:
+                print("Error:", e)
 
 
     @staticmethod
