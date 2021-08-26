@@ -10,7 +10,7 @@ Listens on the contents of the clipboard and uses regular expressions to modify 
 # 安装
 ## 1. 安装依赖
 ```python
-pip install ./requirement.txt
+pip install -r ./requirement.txt
 ```
 
 ## 2. 输入你要修改的内容
